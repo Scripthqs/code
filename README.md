@@ -1,1 +1,1 @@
-https://scripthqs.github.io/demo001/
+日常写的基础代码
