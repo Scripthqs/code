@@ -1,0 +1,100 @@
+.header{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #424242;
+}
+.header .inner_c{
+    width: 1226px;
+    margin: 0 auto;
+}
+.inner_c li,.service{
+    float: left;
+}
+.user_info,.shop_car{
+    float: right;
+}
+.inner_c a{
+    font-size: 12px;
+
+    display: inline-block;
+}
+.inner_c .line{
+    font-size: 12px;
+    margin: 0 8px;
+}
+.inner_c a:hover{
+    color: white;
+}
+
+.shop_car a{
+    width: 120px;
+    text-align: center;
+
+}
+.shop_car:hover a{
+    background-color: white;
+    color: #ff6700;
+}
+
+.app{
+    position: relative;
+}
+.service .m{
+    width: 124px;
+    height: 148px;
+    line-height: 1;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+
+    position: absolute;
+    right: -40px;
+    /* display: none; */
+    height: 0;
+    overflow: hidden;
+
+}
+.m img{
+    width: 90px;
+    height: 90px;
+    margin: 17px;
+    margin-bottom: 10px;
+}
+.m span{
+    color: black;
+    font-size: 14px;
+}
+.m::before{
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    border: 10px solid transparent;
+    border-top: none;
+    border-bottom-color: white;
+    top: -8px;
+    left: 50px;
+    margin: auto;
+
+} 
+.app:hover .m{
+    /* display: block; */
+    height: 148px;
+    transition: height 0.3s;
+    
+}
+.shop_car .car{
+    height: 100px;
+    width: 300px;
+    background-color: white;
+    line-height: 100px;
+    position: absolute;
+    right: 43px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    color: black;
+    display: none;
+}
+.shop_car:hover .car{
+    display: block;
+}
