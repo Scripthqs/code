@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
     <title>添加删除记录</title>
     <script>
         window.onload = function () {
-            var a = document.getElementsByTagName("a");
-            for (var i = 0; i < a.length; i++) {
-                a[i].onclick = function () {
-                    // console.log(this);
+
+
+            function funDel() {
+                    console.log(this);
+                
                     var tr = this.parentNode.parentNode;
                     // var name = tr.getElementsByTagName('td')[0].innerHTML;
                     var name = tr.firstElementChild.innerHTML;
@@ -17,10 +18,15 @@
                         tr.parentNode.removeChild(tr);
                     }
                     return false;
-                };
+                }
+
+
+            var a = document.getElementsByTagName("a");
+            for (var i = 0; i < a.length; i++) {
+                a[i].onclick = funDel;
             }
 
-            var add = document.getElementById("add");
+/*             var add = document.getElementById("add");
             add.onclick = function(){
                 var name = document.getElementById("empName").value;
                 var email = document.getElementById("email").value;
@@ -31,25 +37,53 @@
                 var emailTd = document.createElement("td");
                 var salaryTd = document.createElement("td");
                 var delTd = document.createElement("td");
-                var dea= document.createElement("a");
+
+                var dela= document.createElement("a");
+                dela.href = "#";
+                dela.onclick = funDel;
+
                 var nameText = document.createTextNode(name);
                 var emailText = document.createTextNode(email);
                 var salaryText = document.createTextNode(salary);
-                var delText = document.createTextNode("Delete");
+                var delaText = document.createTextNode("Delete");
 
 
                 nameTd.appendChild(nameText);
                 emailTd.appendChild(emailText);
                 salaryTd.appendChild(salaryText);
-                dea.appendChild(delText);
-                delTd.appendChild(dea);
+                dela.appendChild(delaText);
+        
+                delTd.appendChild(dela);
+
+                var box1 = document.getElementById("box1");
+                var tbody = box1.getElementsByTagName("tbody")[0];
+                tr.appendChild(nameTd);
+                tr.appendChild(emailTd);
+                tr.appendChild(salaryTd);
+                tr.appendChild(delTd);
+                tbody.appendChild(tr);
                 
+            } */
 
 
-                
+            var add = document.getElementById("add");
+            add.onclick = function(){
+                var name = document.getElementById("empName").value;
+                var email = document.getElementById("email").value;
+                var salary = document.getElementById("salary").value;
+                console.log(name,email,salary)
+                var tr = document.createElement("tr");
 
-
-
+                tr.innerHTML = "<td>"+name+"</td>" +
+                                 "<td>"+email+"</td>" +
+                                 "<td>"+salary+"</td>" +
+                                 "<td><a href='#'>Delete</a></td>" ;
+                var a = tr.getElementsByTagName('a')[0];
+                console.log(a);
+                a.onclick = funDel;
+                var box1 = document.getElementById("box1");
+                var tbody = box1.getElementsByTagName("tbody")[0];
+                tbody.appendChild(tr);
             }
 
 
