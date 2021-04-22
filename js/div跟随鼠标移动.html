@@ -21,14 +21,25 @@
         window.onload = () =>{
             var box1 = document.getElementById("box1");
             document.onmousemove = e =>{
-                var x = e.pageX;
+/*                 var x = e.pageX;
                 var y = e.pageY;
                 box1.style.left = x + "px";
                 box1.style.top = y + "px";
+                console.log(x,y); */
 
+
+
+                var st = document.documentElement.scrollTop;
+                var x = e.clientX;
+                var y = e.clientY;
+                box1.style.left = x + "px";
+                box1.style.top = y + st +  "px";
                 console.log(x,y);
+
             }
         }
+
+
     </script>
 </head>
 <body>
