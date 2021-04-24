@@ -9,7 +9,7 @@
     <script>
         window.onload = function(){
             
-            var btn01 = document.getElementById("btn01");
+/*             var btn01 = document.getElementById("btn01");
             btn01.onclick = function(){
                 console.log(1);
             }
@@ -17,6 +17,28 @@
                 console.log(2);
             }
 
+            btn01.addEventListener("click",function(){
+                console.log(3);
+            },false)
+            btn01.addEventListener("click",function(){
+                console.log(4);
+            },false) */
+
+
+            function bind(obj,eventStr,callback){
+                if(obj.addEventListener){
+                    obj.addEventListener(eventStr,callback,false);
+                }else{
+                    obj.attachEvent("on" + eventStr,function(){
+                        callback.call(obj);
+                    });
+                }
+            }
+            var btn01 = document.getElementById("btn01");
+            bind(btn01,'click',function(){
+                alert(this);
+
+            });
 
         }
 
