@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue系统指定</title>
+    <script src="vue.js"></script>
+    <style>
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <h1>{{message}}</h1>
+        <h2 v-once>{{message}}，你好Vue</h2>
+        <h2 v-html="url"></h2>
+        <h2 v-text="url"></h2>
+        <h2 v-pre>{{message}}</h2>
+        <img v-bind:src=" imgURL" alt="">
+        <a v-bind:href="ahref">百度2下</a>
+    </div>
+    <script>
+        setInterval(function(){
+
+            const app = new Vue({
+                el: "#app",
+                data: {
+                    message: "你好世界",
+                    firstName: "mc",
+                    lastName: "haha",
+                    url: "<a href='https://www.baidu.com'>百度一下</a>",
+                    imgURL: "",
+                    ahref: "https://www.baidu.com"
+
+    
+                }
+            })
+        },1000)
+    </script>
+</body>
+</html>
