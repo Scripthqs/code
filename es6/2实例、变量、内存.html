@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,age){
+            this.name = name;
+            this.age - age;
+        }
+        var p = new Person();
+
+        var a;
+        console.log(a);
+        a = null;
+        console.log(a);
+
+        var obj1 = {name:'haha'};
+        var obj2 = obj1;
+        obj1.name = 'hei';
+        console.log(obj2.name);
+        function fn(obj){
+            obj.age = 18;
+        }
+        fn(obj2);
+        console.log(obj2)
+
+        var a = {age:12};
+        var b= a;
+        a = {name:'ha',age:13};
+        console.log(b.age,b.name,a.name,a.age);
+        function fn2(obj){
+            obj = {age:15};
+            // obj = a;
+        }
+        fn2(a);
+        console.log(a.age)
+    </script>
+</body>
+</html>

@@ -25,13 +25,23 @@
             b2: [1, 'abc', console.log],
             b3: function () {
                 console.log('b3');
+                return function () {
+                    return '出来'
+                }
             }
         };
-        console.log(b1 instanceof Object, b1 instanceof Array);
-        console.log(b1.b2 instanceof Array, b1.b2 instanceof Function);
-        console.log(b1.b3 instanceof Function);
+        // console.log(b1 instanceof Object, b1 instanceof Array);
+        // console.log(b1.b2 instanceof Array, b1.b2 instanceof Function);
+        // console.log(b1.b3 instanceof Function);
+        // console.log(b1.b2[2]);
+        // console.log(typeof b1.b2[2] === "function");
+        // b1.b2[2]('哈哈哈啊哈哈');
+         var a=b1.b3()()
+         console.log(a)
+         console.log(typeof b1.b2)
+        // console.log(b1.b3()());
 
-        
+
     </script>
 </body>
 
