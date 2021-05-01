@@ -9,16 +9,21 @@
 <body>
     <script>
         var a = 3
-        function fun(){
+        function fn1(){
             console.log(a)
             var a = 4
         }
-        fun()
+        fn1()
         console.log(b);
-        fn()
+        fn2()
         var b = 5
-        function fn(){
+        function fn2(){
             console.log("fn2")
+        }
+
+        fn3();
+        var c = function fn3(){
+            console.log("fn3");
         }
     </script>
 </body>
