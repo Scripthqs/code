@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-        console.log(Date.prototype,typeof Date.prototype);
+/*         console.log(Date.prototype,typeof Date.prototype);
         function Fun(){
 
         }
@@ -18,7 +18,19 @@
         
         console.log(Fun.prototype.constructor === Fun )
         var f = new Fun()
-        f.test()
+        f.test() */
+
+        function Fn(){
+            this.test1 = function(){
+
+            }
+        }
+        var fn = new Fn();
+        console.log(Fn.prototype)
+        Fn.prototype.test2 = '2';
+        console.log(Fn.prototype);
+
+        console.log(Object.prototype)
     </script>
 </body>
 </html>
