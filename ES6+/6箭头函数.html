@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ad{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="ad"></div>
+    <script>
+    //     let fn = (a,b) =>{
+         
+    //         console.log(this);
+    //            return a+b
+    //     }
+  
+    //   console.log(fn(1,2));
+
+    //   function getName(){
+    //       console.log(this.name);
+    //   }
+    //   let getName2 = () =>{
+    //       console.log(this.name);
+    //   }
+    //     window.name = 'aahah'
+    //     const obj = {
+    //         name:'qrrewq'
+    //     }
+    //     getName()
+    //     getName2()
+    //     getName.call(obj)
+    //     getName2.call(obj)
+
+    //     let Person = (name,age) =>{
+    //         this.name = name,
+    //         this.age = age
+    //     }
+    //     // let p =new Person
+    //     let xx = () =>{
+    //         // console.log(arguments);
+    //     }
+    //     xx(1,2,3)
+
+/*         let y = r =>r*r
+        console.log(y(9)); */
+
+        let ad = document.getElementById("ad")
+        ad.onclick = function(){
+            console.log(this);
+            // let _this = this;
+            setInterval(() =>{
+                // console.log(this);
+                // this.style.background = "blue"
+            },1000)
+        }
+
+
+        const arr = [1,2,3,4,5]
+        // const result = arr.filter(function(item){
+        //     if(item%2==0){
+        //         return true;
+        //     }else{
+        //         return false;
+        //     }
+        // })
+        const result = arr.filter(item =>item%2===0)
+        console.log(result);
+
+
+    </script>
+</body>
+</html>

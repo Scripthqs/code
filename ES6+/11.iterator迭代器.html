@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*         let arr = [7,2,3,4]
+        for(let v of arr){
+            console.log(v);
+        }
+        let i = arr[Symbol.iterator]()
+        console.log(i.next())
+        console.log(i.next())
+        console.log(i.next())
+        console.log(i.next())
+        console.log(i.next())
+
+        console.log(arr); */
+
+
+        let obj = {
+            name:'幼儿园',
+            s:[
+                'aaaa',
+                'bdfas',
+                'cdfsadd',
+                'dfads'
+            ],
+            [Symbol.iterator](){
+                let index = 0
+                // let _this = this;
+                return {
+                    next: () =>{
+                        if(index < this.s.length){
+                            const result = { value: this.s[index],done: false}
+                            index++
+                            return result
+                        }else{
+                            return {value: undefined, done:true}
+                        }
+                    }
+                }
+            }
+        }
+
+
+       for(let v of obj){
+            console.log(v);
+        }
+
+
+    </script>
+</body>
+</html>
