@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var p = new Object()
+        p.name = "ha"
+        p.age = 19
+        p.fun = function(name){
+            this.name = name
+        }
+
+        var p1 = {
+            name:"he",
+            age:20,
+            fun1:function(name){
+                this.name = name
+            }
+        }
+
+        function Person(name,age){
+            var obj = {
+                name:name,
+                age:age,
+                fun:function(name){
+                    this.name
+                }
+            }
+            return obj
+        }
+
+        var p1 = Person('haha',20)
+        var p2 = Person('hehe',23)
+        console.log(p1);
+
+
+        
+        function Dog(name,age){
+            this.name = name,
+            this.age = age,
+            this.fun = function(name){
+                this.name = name
+            }
+        }
+        var d1 = new Dog('小白',3)
+        var d2 = new Dog('小黑',4)
+        d1.fun('小花')
+        console.log(d1,d2);
+        console.log(d1.name,d2.name);
+
+
+
+        function Cat(name,age){
+            this.name = name,
+            this.age = age
+        }
+        Cat.prototype.fun = function(name){
+            this.name = name
+        }
+        var c1 = new Cat("汤姆",8)
+        var c2 = new Cat("黑猫警长",2)
+        console.log(c1,c2);
+    </script>
+</body>
+</html>
