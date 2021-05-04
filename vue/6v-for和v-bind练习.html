@@ -16,7 +16,7 @@
     <div id="app">
         {{message}}
         <ul>
-            <li @click = "bc" v-for="(m,i) in movies"><a href="#">{{m}}{{i}}</a></li>
+            <li  @click= "bc(i)"  v-for="(m,i) in movies" :class="{red:i===j}">{{m}}{{i}}</li>
         </ul>
 
     </div>
@@ -26,11 +26,11 @@
             data: {
                 message: "你好世界",
                 movies: ['电影','电视','电脑','电话'],
-                ist: false
+                j: 0
             },
             methods:{
                 bc: function(i){
-                    this.ai =  i;
+                    this.j = i
                 }
             }
         })
