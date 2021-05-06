@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        {{str}}
+        <p>
+            总价格：{{tp}}
+        </p>
+    </div>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "hello world",
+                a:  "你好",
+                b: "世界",
+                books: [
+                    {id: 110,name: "三国演义",price: 69},
+                    {id: 111,name: "红楼梦",price: 80},
+                    {id: 112,name: "西游记",price: 70},
+                    {id: 113,name: "水浒传",price: 88},
+                ]
+            },
+            computed:{
+                str: function(){
+                    return this.a + '' + this.b
+                },
+                tp: function(){
+/*                     let r = 0
+                    for(let i=0; i < this.books.length; i++){
+                        r += this.books[i].price
+                    }
+                    return r */
+
+                    for(let i in this.books){
+                        console.log(i);
+                    }
+                    for (let book of this.books){
+                        console.log(book);
+                    }
+                
+                }
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

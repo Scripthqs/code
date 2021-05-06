@@ -10,15 +10,23 @@
 <body>
     <div id="app">
         <h2 :style="[baseStyle,baseStyle1]">{{message}}</h2>
+        <p  :style="{fontSize: ff}">{{message}}</p>
+        <p  :style="fn()">{{message}}</p>
 
     </div>
     <script>
         const app = new Vue({
             el: "#app",
             data: {
-                message: "你好世界",
+                message: "hello world",
                 baseStyle:{backgroundColor: 'red'},
-                baseStyle1:{fontSize:"40px"}
+                baseStyle1:{fontSize:"40px"},
+                ff: "80px"
+            },
+            methods:{
+                fn: function(){
+                    return {fontSize:"100px",color:"blue"}
+                }
             }
         })
     </script>
