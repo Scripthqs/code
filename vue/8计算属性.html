@@ -11,9 +11,8 @@
     <div id="app">
         {{message}}
         {{str}}
-        <p>
-            总价格：{{tp}}
-        </p>
+        <p>总价格：{{tp}}</p>
+        <p>{{fullname}}</p>
     </div>
     <script>
         const app = new Vue({
@@ -45,13 +44,26 @@
                     }
                     for (let book of this.books){
                         console.log(book);
+                        console.log(book.price);
                     }
                 
+                },
+
+                fullname:{
+                set:function(){
+
+                },
+                get:function(){
+                    return 'abc'
                 }
             },
-            methods:{
+
+
 
             }
+
+            
+
         })
     </script>
 </body>
