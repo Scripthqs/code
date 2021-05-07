@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <p>{{n}}</p>
+        <button v-on:click="inc">+</button>
+        <button @click="dec">-</button>
+        <button @click="hah">111</button>
+        <button @click="fun(123,$event)">111</button>
+        <div @click="divfun">
+          <button @click.stop="btnfun">冒泡</button>
+        </div>
+        <a href="https://www.baidu.com" @click.prevent="afun">百度一下</a>
+        <input type="text" @keyup.enter="keyfun">
+        <button @click.once="btnfun">11111111</button>
+    </div>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "你好世界",
+                n: 0
+            },
+            methods:{
+              inc(){
+                this.n++
+              },
+              dec(){
+                this.n--
+              },
+              hah(e){
+                console.log(e);
+              },
+              fun(abc,event){
+                console.log(abc,event);
+              },
+              btnfun(){
+                console.log("btn");
+              },
+              divfun(){
+                console.log("div");
+              },
+              afun(){
+                console.log('a');
+              },
+              keyfun(){
+                console.log("keyfun");
+              }
+            }
+        })
+    </script>
+</body>
+</html>

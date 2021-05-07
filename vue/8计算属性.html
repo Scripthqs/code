@@ -50,11 +50,14 @@
                 },
 
                 fullname:{
-                set:function(){
-
+                set:function(n){
+                    console.log(1,n);
+                    const names = n.split('')
+                    this.a = names[0]
+                    this.b = names[1]
                 },
                 get:function(){
-                    return 'abc'
+                    return this.a+""+this.b
                 }
             },
 
