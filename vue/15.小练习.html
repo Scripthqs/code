@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,35 +28,41 @@
 </head>
 <body>
     <div id="app">
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>书籍名称</th>
-                    <th>出版日期</th>
-                    <th>价格</th>
-                    <th>购买数量</th>
-                    <th>操作</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="n in books">
-                    <!-- <td v-for="i in n">{{i}}</td> -->
-                    <td>{{n.id}}</td>
-                    <td>{{n.name}}</td>
-                    <td>{{n.date}}</td>
-                    <td>{{n.price}}</td>
-                    <td>
-                        <button>-</button>
-                        {{n.count}}
-                        <button>+</button>
-                    </td>
-                    <td><button>移除</button></td>
-                </tr>
-            </tbody>
-        </table>
-
+        <div v-if="books.length">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>书籍名称</th>
+                        <th>出版日期</th>
+                        <th>价格</th>
+                        <th>购买数量</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(n,i) in books">
+                        <!-- <td v-for="i in n">{{i}}</td> -->
+                        <td>{{n.id}}</td>
+                        <td>{{n.name}}</td>
+                        <td>{{n.date}}</td>
+                        <!-- <td>{{n.price}}</td> -->
+                        <!-- <td>{{pr(n.price)}}</td> -->
+                        <td>{{n.price | sp}}</td> 
+                        <td>
+                            <button @click="dec(i)" :disabled="n.count <= 1">-</button>
+                            {{n.count}}
+                            <button @click="inc(i)">+</button>
+                        </td>
+                        <td><button @click="remove">移除</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>总价格：{{totalP | sp}}</好>
+        </div>
+        <h2 v-else>购物车为空</h2>
     </div>
+
 
     <script>
       const app = new Vue({
@@ -100,6 +106,36 @@
                   }
               ]
 
+          },
+          methods:{
+              pr(price){
+                  return '￥'+price.toFixed(2)
+              },
+              dec(i){
+                  this.books[i].count--
+
+              },
+              inc(i){
+                this.books[i].count++
+                  
+              },
+              remove(i) {
+                this.books.splice(i,1)
+              }
+          },
+          computed:{
+            totalP(){
+                let totalP = 0
+                for(let i=0; i<this.books.length;i++){
+                    totalP += this.books[i].price * this.books[i].count
+                }
+                return totalP
+            }
+          },
+          filters: {
+            sp(price){
+                return '￥'+price.toFixed(2)
+            }
           }
       })
     </script>
