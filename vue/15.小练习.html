@@ -125,9 +125,21 @@
           },
           computed:{
             totalP(){
+                // let totalP = 0
+                // for(let i=0; i<this.books.length;i++){
+                //     totalP += this.books[i].price * this.books[i].count
+                // }
+                // return totalP
+
+                // let totalP = 0
+                // for(let i in this.books){
+                //     totalP += this.books[i].price * this.books[i].count
+                // }
+                // return totalP
+                
                 let totalP = 0
-                for(let i=0; i<this.books.length;i++){
-                    totalP += this.books[i].price * this.books[i].count
+                for(let n of this.books){
+                    totalP += n.price * n.count
                 }
                 return totalP
             }
