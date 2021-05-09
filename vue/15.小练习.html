@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>template</title>
+    <title>购物车</title>
     <script src="vue.js"></script>
     <style>
 
@@ -58,7 +58,7 @@
                     </tr>
                 </tbody>
             </table>
-            <h2>总价格：{{totalP | sp}}</好>
+            <h2>总价格：{{totalP | sp}}</h2>
         </div>
         <h2 v-else>购物车为空</h2>
     </div>
@@ -136,12 +136,17 @@
                 //     totalP += this.books[i].price * this.books[i].count
                 // }
                 // return totalP
+
+                // let totalP = 0
+                // for(let n of this.books){
+                //     totalP += n.price * n.count
+                // }
+                // return totalP
+
+                return this.books.reduce(function(p,n){
+                    return p + n.price*n.count
+                },0)
                 
-                let totalP = 0
-                for(let n of this.books){
-                    totalP += n.price * n.count
-                }
-                return totalP
             }
           },
           filters: {
@@ -150,6 +155,10 @@
             }
           }
       })
+
+
+
+
     </script>
 </body>
 </html>
