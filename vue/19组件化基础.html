@@ -23,12 +23,15 @@
 
         <mycpn2></mycpn2>
 
-
+        <cpnx></cpnx>
     </div>
 
 
     
 <script>
+
+
+
     const cpn1 = Vue.extend({
         template: `
         <div>
@@ -54,6 +57,17 @@
 
         })
 
+        Vue.component('cpnx',{
+        template:`
+        <div>
+            <h2>我是标题x</h2>
+            <p>我是内容呵呵呵x</p>
+            <p>我是内容哈哈哈x</p>
+        </div>`
+    })
+
+
+
 
         
         // Vue.component('mycpn',cpn)
@@ -67,7 +81,15 @@
         },
         components: {
             // mycpn1: cpn1,
-            mycpn2: cpn2
+            // mycpn2: cpn2
+            mycpn2: {
+                template:`
+                <div>
+                    <h2>我是标题2</h2>
+                    <p>我是内容呵呵呵2</p>
+                     <p>我是内容哈哈哈2</p>
+                </div>`
+            }
         }
     })
 
