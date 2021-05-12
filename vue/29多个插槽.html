@@ -11,19 +11,20 @@
     <div id="app">
         <h1>{{message}}</h1>
         <cpn>
-            <button>按钮</button>
-            <p>我是段落</p>
-            <h2>啊哈哈哈</h2>
-        <cpn><h2>一个插槽可以放很多东西啊</h2></cpn>
-        <cpn></cpn>
+            <h1 slot="left">左标题</h1>
+            <h2 slot="center">标题</h2>
+            <h3 slot="right">右标题</h3>
+        </cpn>
+
+        <cpn><button slot="right">标题</button></cpn>
 
     </div>
 
     <template id="cpn">
         <div>
-            <h2>我是cpn</h2>
-            <p>我是组件</p>
-            <slot><button>按钮</button></slot>
+            <slot name='left'><span>左边</span></slot>
+            <slot name='center'><span>中间</span></slot>
+            <slot name='right'><span>右边</span></slot>
         </div>
     </template>
 <script>
