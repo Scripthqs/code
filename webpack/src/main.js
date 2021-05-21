@@ -10,3 +10,7 @@ console.log(aaa);
 
 
 require('./css/index.css')
+
+require('./css/aaa.less')
+
+document.writeln('<h2>标题</h2>')
