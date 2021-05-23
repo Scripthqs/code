@@ -17,10 +17,16 @@ document.writeln('<h2>标题</h2>')
 
 
 
-import  Vue from 'vue'
+import Vue from 'vue'
 
 const app = new Vue({
     el: '#app',
+    template: `
+    <div>
+        <h2>{{message}}</h2>
+    
+    </div>
+    `,
     data: {
         message: '你好，世界'
     }

@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 4);
@@ -809,6 +809,11 @@ document.writeln('<h2>标题</h2>')
 
 const app = new __WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */]({
     el: '#app',
+    template: `
+    <div>
+        <h2>{{message}}</h2>
+    </div>
+    `,
     data: {
         message: '你好，世界'
     }
