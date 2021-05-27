@@ -19,15 +19,17 @@ document.writeln('<h2>标题</h2>')
 
 import Vue from 'vue'
 
-const app = new Vue({
+// import App from './vue/app'
+
+import App from './vue/App.vue'
+
+new Vue({
     el: '#app',
-    template: `
-    <div>
-        <h2>{{message}}</h2>
-    
-    </div>
-    `,
-    data: {
-        message: '你好，世界'
+    template: `<App></App>`,
+    components: {
+        App
     }
 })
+
+
+document.writeln('自动刷新，分离了测试')
