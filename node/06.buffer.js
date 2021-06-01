@@ -9,3 +9,5 @@ var buf3 = Buffer.alloc(10);
 buf3[0]= 0xaa
 buf3[9]= 15
 console.log(buf3);
+console.log(buf3[0]);
+console.log(buf3[0].toString(16));
