@@ -13,6 +13,7 @@ require('./css/index.css')
 
 require('./css/aaa.less')
 
+
 document.writeln('<h2>标题</h2>')
 
 
@@ -32,4 +33,4 @@ new Vue({
 })
 
 
-document.writeln('自动刷新，分离了测试')
+document.writeln('自动刷新，分离测试')
