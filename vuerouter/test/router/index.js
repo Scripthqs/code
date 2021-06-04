@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router'
 import Vue from 'vue'
 import Home from '..'
-import About from '..'
+import About from '../'
 Vue.use(VueRouter)
 
 const routers = [
