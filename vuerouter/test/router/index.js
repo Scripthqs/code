@@ -16,6 +16,10 @@ const routers = [
     {
         path:'/about',
         component: About
+    },
+    {
+        path:'/user/:userid',
+        component: User
     }
 ]
 const router = new VueRouter({
@@ -23,4 +27,6 @@ const router = new VueRouter({
     mode: 'history',
     linkActiveClass
 })
+
+export default router
 
