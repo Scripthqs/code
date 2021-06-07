@@ -11,7 +11,12 @@ export default new Vuex.Store({
       {id: 111,name:'hb',age:19},
       {id: 112,name:'hc',age:20},
       {id: 113,name:'hd',age:21},
-    ]
+    ],
+    info: {
+      name:'xyz',
+      age:30,
+      gender:'男'
+    }
   },
   mutations: {
     increment(state){
@@ -27,6 +32,9 @@ export default new Vuex.Store({
     },
     addstudent(state,stu){
       state.students.push(stu)
+    },
+    updateinfo(state){
+      state.info.name = 'abc'
     }
   },
   getters: {
@@ -47,6 +55,7 @@ export default new Vuex.Store({
         return state.students.filter(s => s.age > age)
       }
     }
+
   },
   actions: {
 

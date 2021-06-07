@@ -18,6 +18,8 @@
     <h1>students{{ $store.getters.more19 }}</h1>
     <h1>students{{ $store.getters.more19l }}</h1>
     <h1>students{{ $store.getters.moreAge(20) }}</h1>
+    <h1>{{ $store.state.info}}</h1>
+    <button @click='updateinfo'>修改信息</button>
   
   </div>
 </template>
@@ -73,7 +75,11 @@ export default {
     addstudent(){
       const stu = {id:114,name:'he',age:23}
       this.$store.commit('addstudent',stu)
+    },
+    updateinfo(){
+      this.$store.commit('updateinfo')
     }
+
   }
 }
 </script>
