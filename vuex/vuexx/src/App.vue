@@ -6,6 +6,14 @@
     </div>
     <router-view/>
 
+    <h1>modules{{ $store.state.a.name }}</h1>
+    <button @click='updatename'>修改名字</button>
+    <h1>modules{{ $store.getters.fullname }}</h1>
+    <h1>modules{{ $store.getters.fullname2 }}</h1>
+    <h1>modules{{ $store.getters.fullname3 }}</h1>
+
+
+
     <h1>app{{ counter }}</h1>
     <button @click='add'>+</button>
     <button @click='sub'>-</button>
@@ -48,6 +56,9 @@
 </style>
 
 <script>
+
+import {INCREMENT} from './store/mutations-types'
+
 export default {
   name: 'app',
   computed: {
@@ -60,7 +71,8 @@ export default {
   },
   methods: {
     add(){
-      this.$store.commit('increment')
+      // this.$store.commit('increment')
+      this.$store.commit(INCREMENT)
     },
     sub(){
       this.$store.commit('decrement')
@@ -77,7 +89,25 @@ export default {
       this.$store.commit('addstudent',stu)
     },
     updateinfo(){
-      this.$store.commit('updateinfo')
+      // this.$store.commit('updateinfo')
+      // this.$store.dispatch('aupdateinfo',() => {
+      //   console.log('success');
+      // })
+    // this.$store.dispatch('aupdateinfo',{
+    //   message: '我是信息',
+    //   success(){
+    //     console.log('success haha');
+    //   }
+    // })
+    this.$store.dispatch('aupdateinfo','我是信息').then(res => {
+      console.log(res);
+      console.log('success');
+    })
+    },
+
+    updatename(){
+      // this.$store.commit('updatename','猪八戒')
+      this.$store.dispatch('aupdatename')
     }
 
   }
