@@ -14,10 +14,22 @@ app.all('/json-server',(request,response) => {
     //设置响应头，*表示所有头信息都可以接收
     response.setHeader('Access-Control-Allow-Headers','*')
     const data = {
-        name: 'hahahah'
+        name: '哈哈哈哈'
     }
     let str = JSON.stringify(data)
     response.send(str)
+})
+app.get('/ie',(request,response) => {
+    //设置响应头，设置允许跨域
+    response.setHeader('Access-Control-Allow-Origin','*')
+    response.send('hello IE缓存-1')
+})
+app.get('/delay',(request,response) => {
+    //设置响应头，设置允许跨域
+    response.setHeader('Access-Control-Allow-Origin','*')
+    setTimeout(() => {
+        response.send('延时响应')
+    }, 3000);
 })
 //4，监听端口启动服务
 app.listen(8000,() => {
