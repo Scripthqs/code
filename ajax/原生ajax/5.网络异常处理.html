@@ -24,7 +24,14 @@
         btn.addEventListener('click',function(){
             // console.log('test');
             const xhr = new XMLHttpRequest()
-            xhr.open('GEt','http://127.0.0.1:8000/')
+            xhr.open('GEt','http://127.0.0.1:8000/delay')
+            xhr.timeout = 2000
+            xhr.ontimeout = function(){
+                alert('网络异常，请稍后再试')
+            }
+            xhr.onerror = function(){
+                alert('你的网络似乎出现了一些问题')
+            }
             xhr.send()
             xhr.onreadystatechange = function(){
                 if(xhr.readyState === 4){
