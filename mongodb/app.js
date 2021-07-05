@@ -1,10 +1,16 @@
 //新建一个users表，并且只有需要一条数据
 
 const express = require('express')
+const { JsonWebTokenError } = require('jsonwebtoken')
 const app = express()
 const port = 3000
 const md5 = require('md5')
 const mongoose = require('mongoose')
+const fs = require('fs')
+const jwt = require('jsonwebtoken')
+const jwt_secret = fs.readFileSync('./.env','utf-8')
+// console.log(jwt_secret);
+
 //连接数据库
 mongoose.connect('mongodb://127.0.0.1:27017/script',{
     useNewUrlParser: true,
@@ -46,6 +52,7 @@ app.use((req,res,next) => {
     req.body.password = md5(md5(req.body.password) + md5(req.body.password).substr(10,10))
     next()
 })
+//登录信息的初始化，为了得到加密的密码，用完之后为了安全建议注释/删除
 // app.post('/init', (req, res) => {
 //     console.log(req.body);
 // })
@@ -64,10 +71,20 @@ app.post('/login',(req,res) =>{
             res.send({
                 error_code:0,
                 message:'ok',
-                // _token:
+                //参数1是载荷的数据，参数2是签名的secret
+                _token: jwt.sign({userId:ret.userId},jwt_secret)
             })
         }
     })
 })
+
+
+//获取用户信息（必须先获得令牌）
+app.get('get_user_info',(req,res) => {
+    
+})
+
+
+
 app.listen(port, () => console.log(`http://127.0.0.1:3000`))
 
