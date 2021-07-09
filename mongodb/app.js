@@ -46,7 +46,7 @@ const Model = mongoose.model("User",userSchema,"users")
 app.use(express.urlencoded({extended: false}))
 
 //自定义中间件加密密码
-app.use((req,res,next) => {
+var passwd = ((req,res,next) => {
     // console.log(req.body.password);
     // console.log(md5(md5(req.body.password) + md5(req.body.password).substr(10,10)));
     req.body.password = md5(md5(req.body.password) + md5(req.body.password).substr(10,10))
@@ -57,7 +57,7 @@ app.use((req,res,next) => {
 //     console.log(req.body);
 // })
 
-app.post('/login',(req,res) =>{
+app.post('/login',passwd,(req,res) =>{
     let data = req.body
     // console.log(data);
     //查询数据库，检查是否有这个用户
@@ -81,6 +81,7 @@ app.post('/login',(req,res) =>{
 
 //获取用户信息（必须先获得令牌）
 app.get('get_user_info',(req,res) => {
+    let tmp = req.headers.authorization.split(" ")
     
 
 })
