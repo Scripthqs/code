@@ -14,27 +14,36 @@
 </head>
 <body>
     <div id="app">
-        {{message}}
+        <h1>{{ message }}</h1>
         <ul>
-            <li  @click= "bc(i)"  v-for="(m,i) in movies" :class="{red:i===j}">{{m}}{{i}}</li>
+            <li :class='{red:index===Aindex}' v-for='(item,index) in arr' @click='Aindex=index'>{{ index+1 }}--{{ item }}</li>
         </ul>
 
+        <ul>
+            <li :class='{red:index===Aindex}' v-for='(item,index) in arr' @click='c1(index)'>{{ index+1 }}--{{ item }}</li>
+        </ul>
+
+        <ul>
+            <li :class='f1(index)' v-for='(item,index) in arr' @click='c1(index)'>{{ index+1 }}--{{ item }}</li>
+        </ul>
     </div>
     <script>
         const app = new Vue({
-            el: "#app",
+            el: '#app',
             data: {
-                message: "你好世界",
-                movies: ['电影','电视','电脑','电话'],
-                j: 0
+                message: '你好，世界',
+                arr:['吃饭','睡觉','喝水','运动'],
+                Aindex: 0
             },
-            methods:{
-                bc: function(i){
-                    this.j = i
+            methods: {
+                c1: function(index){
+                    this.Aindex = index
+                },
+                f1: function(index){
+                    return {red:index===this.Aindex}
                 }
             }
         })
-        
     </script>
 </body>
 </html>
