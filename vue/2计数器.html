@@ -9,27 +9,28 @@
 </head>
 <body>
     <div id="app">
-        <h1>当前计数：{{counter}}</h1>
-<!--         <button v-on:click="counter++">+</button>
-        <button v-on:click="counter--">-</button> -->
-        <button v-on:click="add">+</button>
-        <button v-on:click="sub">-</button>
-
+        <h2>当前计数：{{ counter }}</h2>
+        <button v-on:click="counter--">-</button>
+        <button v-on:click="counter++">+</button>
+        <button v-on:click="dec">-</button>
+        <button v-on:click="inc">+</button>
+        <button @click="dec">-</button>
+        <button @click="inc">+</button>
     </div>
     <script>
         const app = new Vue({
-            el:"#app",
-            data:{
-                counter:0
+            el: '#app',
+            data: {
+                counter: 0
             },
-            methods:{
-                add: function(){
-                    console.log("add被执行");
-                    this.counter++;
+            methods: {
+                dec: function(){
+                    console.log('dec函数执行');
+                    this.counter--
                 },
-                sub: function(){
-                    console.log("sub被执行");
-                    this.counter--;
+                inc: function(){
+                    console.log('inc函数执行');
+                    this.counter++
                 }
             }
         })

@@ -12,31 +12,29 @@
 </head>
 
 <body>
-<!--     <div id="app">
-        <h1>{{message}}</h1>
-        <h2>{{name}}</h2>
-    </div> -->
-    <ul id="ul1">
-        <li v-for="i in lb">{{i}}</li>
-    </ul>
+    <div id="app">
+        {{ message }}
+        {{ age }}
+        {{ gender }}
+        <ul>
+            <li v-for="(item,index) in arr">{{ index+1 }}--{{ item }}</li>
+        </ul>
+    </div>
+
+
+
     <script>
-/* <!--         const app = new Vue({
-            el: "#app",
+        const app = new Vue({
+            el: '#app',
             data: {
-                message: "你好，世界",
-                name:"你好，Vue"
-            }
-        }) --> */
-        const ul1 = new Vue({
-            el: "#ul1",
-            data: {
-                message:"列表",
-                lb: ["电源","电视","电影","电脑"]
+                message: '你好，Vue！',
+                age: 22,
+                gender: '男',
+                arr: ['篮球','游泳','健身','跑步']
             }
         })
-
     </script>
-
 </body>
+
 
 </html>
