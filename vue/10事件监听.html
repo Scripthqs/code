@@ -9,25 +9,39 @@
 </head>
 <body>
     <div id="app">
-        {{message}}
-        <p>{{n}}</p>
+        <h2>{{message}}</h2>
+        <p>{{ n }}</p>
         <button v-on:click="inc">+</button>
         <button @click="dec">-</button>
-        <button @click="hah">111</button>
-        <button @click="fun(123,$event)">111</button>
+        <h2>=================</h2>
+
+        <button @click="fun1">按钮3</button>
+        <button @click="fun2('参数1',$event)">按钮4</button>
+        <button @click="fun2(n,$event)">按钮5</button>
+        <h2>=================</h2>
+
         <div @click="divfun">
-          <button @click.stop="btnfun">冒泡</button>
+          <button @click.stop="btnfun">阻止冒泡</button>
         </div>
-        <a href="https://www.baidu.com" @click.prevent="afun">百度一下</a>
+        <h2>=================</h2>
+
+        <div>
+          <a href="https://www.baidu.com" @click.prevent="afun">百度一下</a>
+        </div>
+        <h2>=================</h2>
+
         <input type="text" @keyup.enter="keyfun">
-        <button @click.once="btnfun">11111111</button>
+        <h2>=================</h2>
+
+        <button @click.once="btnfun">按钮只触发一次</button>
+        <h2>=================</h2>
     </div>
     <script>
         const app = new Vue({
             el: "#app",
             data: {
                 message: "你好世界",
-                n: 0
+                n: 100
             },
             methods:{
               inc(){
@@ -36,23 +50,23 @@
               dec(){
                 this.n--
               },
-              hah(e){
+              fun1(e){
                 console.log(e);
               },
-              fun(abc,event){
-                console.log(abc,event);
+              fun2(a,event){
+                console.log(a,event);
               },
               btnfun(){
-                console.log("btn");
+                console.log("btn触发");
               },
               divfun(){
-                console.log("div");
+                console.log("div触发");
               },
               afun(){
-                console.log('a');
+                console.log('阻止浏览器默认事件，让超链接不跳转');
               },
               keyfun(){
-                console.log("keyfun");
+                console.log("keyfun只触发一次");
               }
             }
         })

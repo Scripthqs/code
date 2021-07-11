@@ -8,12 +8,16 @@
     <script src="vue.js"></script>
 </head>
 <body>
-    <div id="app">
+    <div v-if=f1 id="app">
         <h2 v-if="score>=90">优秀</h2>
         <h2 v-else-if="score>=80">良好</h2>
         <h2 v-else-if="score>=60">合格</h2>
         <h2 v-else=>不及格</h2>
-        <h3>{{re}}</h3>
+        <h2>=======================</h2>
+
+        <h2>{{ result }}</h2>
+        <h2>=======================</h2>
+
     </div>
     <script>
         const app = new Vue({
@@ -21,15 +25,17 @@
             data: {
                 message: "你好世界",
                 f1: true,
-                score:80,
+                score:70,
             },
             computed:{
-                re(){
-                    let m = ''
+                result(){
+                    let m = ' '
                     if(this.score>=90){
                         m="优秀"
+                    }else if(this.score>=80){
+                        m = "良好"
                     }else if(this.score>=60){
-                        m = "及格"
+                        m = "合格"
                     }else{
                         m = '不及格'
                     }

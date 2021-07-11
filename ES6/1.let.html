@@ -17,7 +17,7 @@
 </head>
 <body>
     <div class="box">
-        <h1>点击切换颜色</h1>
+        <h2>点击查看索引</h2>
         <div class="item"></div>
         <div class="item"></div>
         <div class="item"></div>
@@ -29,7 +29,7 @@
         // for(let i= 0 ;i < items.length; i++){
   
         //     items[i].j = i;
-        //     // console.log();
+
         //     items[i].onclick = function(){
         //         j = this.j;
         //         // console.log(i);
@@ -39,25 +39,43 @@
         //     }
         // }
 
-        for(var i=0; i<items.length;i++){
-            (function(i){
-                items[i].onclick = function(){
-                    console.log(i)
-                }
-            })(i)
+        for(let i=0; i<items.length;i++){//var改成let
+            // items[i].onclick = function(){
+            //     console.log(i);//i都是3
+            // }
+
+            // (function(i){
+            //     items[i].onclick = function(){
+            //         console.log(i)
+            //     }
+            // })(i)//使用闭包解决
+
+
+            items[i].onclick = function(){
+                console.log(i);//var 改成let
+            }
         }
 
-        // let a;
-        // let b,c,d;
-        // if(true){
-        //     let x = 10
-        // console.log(x);
+        let a;
+        let b,c,d;
+        if(true){
+            let x = 10
+        console.log(x);
 
-        // }
+        }
+        // console.log(x);//报错，不能访问块级作用域中的变量
+        // console.log(y);//报错，不存在变量提升
+        // let y =1 
 
-        // console.log(y);
-        // let y =1
-        // console.log(x);
+        var m = 10
+        function f1(m){
+            console.log(m);
+        }
+        m = 20
+        console.log(m);
+
+        f1(m)
+
 
 
     </script>
