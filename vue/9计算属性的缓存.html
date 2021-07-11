@@ -9,37 +9,55 @@
 </head>
 <body>
     <div id="app">
-        {{message}}
-        <p>{{a}}{{b}}</p>
+        <h2>{{ message }}</h2>
+        <h2>=======================</h2>
+        <p>{{a}} {{b}}</p>
+        <h2>=======================</h2>
         <p>{{f()}}</p>
         <p>{{f()}}</p>
         <p>{{f()}}</p>
-        <p>{{f()}}</p>
-        <p>{{f1}}</p>
-        <p>{{f1}}</p>
-        <p>{{f1}}</p>
-        <p>{{f1}}</p>
+        <h2>=======================</h2>
+        <p>{{ f1 }}</p>
+        <p>{{ f1 }}</p>
+        <p>{{ f1 }}</p>
+        <p>{{ f2 }}</p>
+
+
 
     </div>
     <script>
         const app = new Vue({
             el: "#app",
             data: {
-                message: "你好世界",
+                message: "你好 世界",
                 a: '你好',
                 b: "世界"
             },
             methods:{
                 f: function(){
                     console.log('f');
-                    return this.a + "" + this.b
+                    return this.a + " " + this.b
                 }
             },
             computed:{
                 f1: function(){
                     console.log('f1');
-                    return this.a + "" + this.b
+                    return this.a + " " + this.b
+                },
+                f2: {
+                    set: function(newValue){
+                        console.log('===============',newValue);
+                        const n = newValue.split(' ')
+                        console.log(n);
+                        this.a = n[0]
+                        this.b = n[1]
+
+                    },
+                    get: function(){
+                        return this.a + " " + this.b
+                    }
                 }
+     
             }
         })
     </script>
