@@ -14,6 +14,8 @@
     <div id="app">
         <textarea name="" id="" cols="30" rows="10" v-model="message"></textarea>
         <input type="text" v-model.lazy="message">
+
+
         <!-- <input type="text" :value="message" @input='fn1'> -->
         <!-- <input type="text" :value="message" @input='message = $event.target.value'> -->
         <h1>{{message}}</h1>
@@ -31,7 +33,7 @@
         <label>
             <input type="checkbox" id="license" v-model='license'>同意协议
         </label>
-        <h2>你选择的是：{{license}}</h2>
+        <h2>你选择的是：{{ license }}</h2>
         <button :disabled="!license">下一步</button>
         <br>
 
