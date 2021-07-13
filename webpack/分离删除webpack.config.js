@@ -50,13 +50,29 @@ module.exports = {
                     presets: ['@babel/preset-env']
                   }
                 }
+              },
+              {
+                test: /\.vue$/,
+                use: ['vue-loader']
               }
             ]
     }, 
     resolve:{
+      //导入文件时，可以省略后缀
+      extensions: ['.js','.css','.vue'],
       alias: {
         'vue$': 'vue/dist/vue.esm.js'
       }
+    },
+    plugin: [
+      new webpack.BannerPlugin('版权声明哈哈哈'),
+      new HtmlWebpackPlugin({
+        template: 'index.html'
+      }),
+      new UglifyJsPlugin()
+    ],
+    devServer: {
+      contentBase: './dist',
+      inline: true
     }
-  
 }

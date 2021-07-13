@@ -20,9 +20,9 @@ document.writeln('<h2>标题</h2>')
 
 import Vue from 'vue'
 
-import App from './vue/app.js'
+// import App from './vue/app.js'
 
-// import App from './vue/App.vue'
+import App from './vue/App.vue'
 
 new Vue({
     el: '#app',
