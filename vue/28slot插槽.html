@@ -10,19 +10,22 @@
 <body>
     <div id="app">
         <h1>{{message}}</h1>
-        <cpn>
-            <button>按钮</button>
-            <p>我是段落</p>
-            <h2>啊哈哈哈</h2>
-        <cpn><h2>一个插槽可以放很多东西啊</h2></cpn>
         <cpn></cpn>
+        <cpn>
+            <button>我会替换组件的默认值</button>
+            <h2>一个插槽可以写多个标签</h2>
+        </cpn>
+        <cpn>
+            <h2>哈哈哈啊</h2>
+        </cpn>
 
     </div>
 
     <template id="cpn">
         <div>
-            <h2>我是cpn</h2>
-            <p>我是组件</p>
+            <h2>我是cpn的h2标签</h2>
+            <p>我是cpn的p标签</p>
+            <!-- <slot></slot> -->
             <slot><button>按钮</button></slot>
         </div>
     </template>
