@@ -1,14 +1,8 @@
-body,
+
+body ,
 html {
-  margin: 0;
-  padding: 0;
-  background-color: #bfa;
-
-}
-body #title,
-html #title {
   color: red;
-
+  background: url("../img/5.jpg");
 }
 
 /*# sourceMappingURL=./index.css.map */
