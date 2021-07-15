@@ -19,8 +19,25 @@ export default {
   },
   data(){
     return {
-      message: '子组件可以访问父组件的message数据'
+      message: '子组件可以访问父组件的message数据',
+      path: '/home/news'
     }
-  }
+  },
+  created(){
+    console.log('home create');
+    document.title = 'Home'
+  },
+  // destroyed(){
+  //   console.log('home destoryed');
+  // },
+  // activated(){
+  //   console.log('actiavted');
+  //   this.$router.push(this.path)
+  // },
+  // beforeRouterLeave(to,from,next){
+  //   console.log(this.$route.path);
+  //   this.path = this.$route.path
+  //   next()
+  // }
 }
 </script>

@@ -16,7 +16,6 @@ const routes = [
   },
   {
     path: '/home',
-    name: 'Home',
     component: Home,
     children: [
       {
@@ -25,10 +24,12 @@ const routes = [
       },
       {
         path: 'news',
+        // name:'home',
         component: HomeNews
       },
       {
         path: 'message',
+        // name:'homeMessage',
         component: HomeMessage
       }
     ]
@@ -58,6 +59,17 @@ const router = new VueRouter({
   routes,
   //默认路由是hash值模式，通过mode更改
   mode:'history'
+})
+
+router.beforeEach((to,from,next) => {
+  // console.log(to);
+  // console.log('bbbbbbbbbbbbbbbbbbbbbbb');
+  document.title = to.name
+  next()
+})
+
+router.afterEach((to,from) => {
+  // console.log('aaaaaaaaaaaaaaaaaaaaaa');
 })
 //4.将router对象传入Vue实例，在main.js中导入并使用router
 export default router

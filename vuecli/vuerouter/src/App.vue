@@ -12,7 +12,9 @@
     <!-- <router-link to="/about" custom v-slot="{ navigate }">
       <span @click="navigate" @keypress.enter="navigate" role="link">About Us</span>
     </router-link> -->
+    <keep-alive>
     <router-view />
+    </keep-alive>
   </div>
 </template>
 

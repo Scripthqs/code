@@ -1,4 +1,3 @@
-
 <template>
   <div>
       <h2>我是HomeNews的页面</h2>
