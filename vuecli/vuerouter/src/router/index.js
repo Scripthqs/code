@@ -2,19 +2,36 @@ import Vue from 'vue'
 //1.导入vue-router插件
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+const HomeNews =  () => import('../components/HomeNews.vue')
+const HomeMessage =  () => import('../components/HomeMessage.vue')
+const Profile =  () => import('../views/Profile.vue')
 //2.通过Vue.use(插件)，安装插件
 Vue.use(VueRouter)
 //3.创建VueRouter对象，单独的抽离出来
 const routes = [
-  // {
-    // path:'',
-    //redirect重定向
-    // redirect: '/home'
-  // },
   {
-    path: '/',
+    path:'',
+    //redirect重定向
+    redirect: '/home'
+  },
+  {
+    path: '/home',
     name: 'Home',
-    component: Home
+    component: Home,
+    children: [
+      {
+        path:'',
+        redirect: 'news'
+      },
+      {
+        path: 'news',
+        component: HomeNews
+      },
+      {
+        path: 'message',
+        component: HomeMessage
+      }
+    ]
   },
   {
     path: '/about',
@@ -28,6 +45,11 @@ const routes = [
     path: '/user/:id', 
     name: 'User',
     component: () => import('../views/User.vue') 
+  },
+  { 
+    path: '/profile', 
+    name: 'Profile',
+    component: Profile 
   }
 ]
 
