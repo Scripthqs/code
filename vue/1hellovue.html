@@ -13,9 +13,10 @@
 
 <body>
     <div id="app">
-        {{ message }}
-        {{ age }}
-        {{ gender }}
+        <p>{{ message }}</p>
+        <p>{{ age }}</p>
+        <p>{{ gender }}</p>
+        <p>{{ _c }}</p>
         <ul>
             <li v-for="(item,index) in arr">{{ index+1 }}--{{ item }}</li>
         </ul>
@@ -24,15 +25,21 @@
 
 
     <script>
-        const app = new Vue({
-            el: '#app',
-            data: {
+        Vue.config.productionTip=false
+        let  data = {
                 message: '你好，Vue！',
                 age: 22,
                 gender: '男',
                 arr: ['篮球','游泳','健身','跑步']
             }
+        const app = new Vue({
+            // el: '#app',
+            data
         })
+        console.log(app);
+     
+        app.$mount('#app')
+
     </script>
 </body>
 
