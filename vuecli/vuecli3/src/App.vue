@@ -1,17 +1,30 @@
 <template>
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <HelloWorld msg="当然有在好好学习，该午休了"/>
+   <button @click="getStudents">获取学生信息</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    
+  },
+  methods: {
+    getStudents(){ 
+      axios.get('http://localhost:8080/students').then(
+        res => {
+          console.log('请求成功',res.data);
+        },
+        err => {
+          console.log('请求失败',err.message);
+        }
+      )
+    }
   }
 }
 </script>
