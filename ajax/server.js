@@ -65,7 +65,7 @@ app.all('/jquery-server', (request, response) => {
     response.setHeader('Access-Control-Allow-Origin', '*');
     response.setHeader('Access-Control-Allow-Headers', '*');
     // response.send('Hello jQuery AJAX');
-    const data = {name:'尚硅谷'};
+    const data = {name:'你好，世界'};
     response.send(JSON.stringify(data));
 });
 
@@ -75,7 +75,7 @@ app.all('/axios-server', (request, response) => {
     response.setHeader('Access-Control-Allow-Origin', '*');
     response.setHeader('Access-Control-Allow-Headers', '*');
     // response.send('Hello jQuery AJAX');
-    const data = {name:'尚硅谷'};
+    const data = {name:'你好，世界'};
     response.send(JSON.stringify(data));
 });
 
@@ -85,7 +85,7 @@ app.all('/fetch-server', (request, response) => {
     response.setHeader('Access-Control-Allow-Origin', '*');
     response.setHeader('Access-Control-Allow-Headers', '*');
     // response.send('Hello jQuery AJAX');
-    const data = {name:'尚硅谷'};
+    const data = {name:'你好，世界'};
     response.send(JSON.stringify(data));
 });
 
@@ -93,7 +93,7 @@ app.all('/fetch-server', (request, response) => {
 app.all('/jsonp-server',(request, response) => {
     // response.send('console.log("hello jsonp")');
     const data = {
-        name: '尚硅谷atguigu'
+        name: '你好，世界，啊哈哈哈'
     };
     //将数据转化为字符串
     let str = JSON.stringify(data);
@@ -118,7 +118,7 @@ app.all('/check-username',(request, response) => {
 app.all('/jquery-jsonp-server',(request, response) => {
     // response.send('console.log("hello jsonp")');
     const data = {
-        name:'尚硅谷',
+        name:'你好，世界',
         city: ['北京','上海','深圳']
     };
     //将数据转化为字符串
