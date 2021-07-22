@@ -1,3 +1,4 @@
+
 module.exports = {
     //方式1.开启代理服务器，写真正访问服务器的端口
     // devServer: {
@@ -18,6 +19,12 @@ module.exports = {
           '/test': {//想走代理，就在请求前面加/api
             target: 'http://localhost:5001',
             pathRewrite:{'^/test':''},//保证代理服务器转发到真正服务器的地址不带/api
+            // ws: true,//用于支持websocket
+            // changeOrigin: true//用于控制请求头中的host值
+          },
+          '/abc': {//想走代理，就在请求前面加/api
+            target: 'https://autumnfish.cn/',
+            pathRewrite:{'^/abc':''},//保证代理服务器转发到真正服务器的地址不带/api
             // ws: true,//用于支持websocket
             // changeOrigin: true//用于控制请求头中的host值
           },
