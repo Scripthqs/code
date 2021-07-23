@@ -3,6 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png" />
     <img alt="Vue logo" :src=" result " />
     <div>{{ result }}</div>
+    <div>{{ data }}</div>
   </div>
 </template>
 
@@ -10,21 +11,23 @@
 // import axios from "axios";
 
 export default {
-  name: "App",
-  components: {},
+  // name: "App",
+  // components: {},
   data() {
     return {
-      result: ''
+      result: '',
+      data:[]
     }
   },
-  created() {
+  // created() {
   //   axios({
   //     url: "http://localhost:8081/abc/banner",
   //   }).then((res) => {
   //     console.log(res.data.banners[0]);
   //     this.result = res.data.banners[0].imageUrl
   //   });
-  }
+  // },
+
 };
 </script>
 

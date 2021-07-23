@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import axios from 'axios'
 
 Vue.config.productionTip = false
 
@@ -27,9 +28,9 @@ new Vue({
 // })
 //写法2：http://localhost:5000/students
 
-// axios.get('https://httpbin.org/').then(res=>{
-//   console.log(res.data);
-// })
+axios.get('https://httpbin.org/').then(res=>{
+  console.log('请求成功',res.data);
+})
 
 // axios.get('http://localhost:8081/test/cars').then(
 //   res => {
@@ -77,7 +78,6 @@ new Vue({
 //   console.log(res);
 // })
 
-//alibaba.icbu.category.attr.get
 
 //   axios({
 //     url: "http://localhost:8081/abc/banner",
@@ -86,7 +86,7 @@ new Vue({
 //     this.result = res.data.banners[0]
 //   });
 
-import {request} from './network/request'
+// import {request} from './network/request'
 
 
 //方法1：传3个参数，config,success,failure
@@ -125,11 +125,11 @@ import {request} from './network/request'
 
 
 //方法4：直接return
-request({
-  url:'/banner'
-}).then(res => {
-  console.log(res);
-}
-).catch(err => {
-  console.log(err);
-})
+// request({
+//   url:'/banner'
+// }).then(res => {
+//   console.log(res);
+// }
+// ).catch(err => {
+//   console.log(err);
+// })
