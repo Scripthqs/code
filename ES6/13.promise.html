@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         const name = '我是name'
@@ -13,12 +15,17 @@
         const result = 3 + 5
         console.log(result);
         console.log('=========================');
-        setTimeout(function(){
+        console.log(Promise);
+        console.log(Promise.prototype);
+  
+        // console.log(promise);
+
+        setTimeout(function () {
             console.log('普通函数hello world');
-        },1000)
-        setTimeout(() =>{
+        }, 1000)
+        setTimeout(() => {
             console.log('箭头函数hello world');
-        },1000)
+        }, 1000)
         console.log('我在后面但是先执行');
         //参数 ->函数resolvev,reject,resolve和rejectye
         // new Promise((resolve,reject)=>{
@@ -26,46 +33,46 @@
         // })
 
         console.log('=========================================');
-        new Promise((resolve,reject)=>{
-            setTimeout(() =>{
-            console.log('hello world');
-            setTimeout(() =>{
-            console.log('hello vue');
-            setTimeout(() =>{
-            console.log('hello promise');
-        },1000)
-        },1000)
-        },1000)
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log('hello world');
+                setTimeout(() => {
+                    console.log('hello vue');
+                    setTimeout(() => {
+                        console.log('hello promise');
+                    }, 1000)
+                }, 1000)
+            }, 1000)
         })
         console.log('=========================================');
-        new Promise((resolve,reject)=>{
+        new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve()
-        },1000)
+            }, 1000)
         }).then(() => {
             console.log('hello world');
-            return new Promise((resolve,reject) => {
+            return new Promise((resolve, reject) => {
                 setTimeout(() => {
                     resolve()
-                },1000)
+                }, 1000)
             })
         }).then(() => {
             console.log('hello vue');
-            return new Promise((resolve,reject) => {
+            return new Promise((resolve, reject) => {
                 setTimeout(() => {
                     resolve()
-                },1000)
+                }, 1000)
             })
         }).then(() => {
             console.log('hello promise');
         })
         console.log('=========================================');
 
-        new Promise((resolve,reject) =>{
+        new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve('data加载成功 ---------------')
                 reject('data加载失败 ----------------')
-            },1000)
+            }, 1000)
         }).then((data) => {
             console.log(data);
         }).catch((err) => {
@@ -73,19 +80,20 @@
         })
 
 
-        new Promise((resolve,reject) => {
+        new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve('hello 正确')
                 // reject('hello 错误')
-            },5000)
+            }, 5000)
         }).then(data => {
             console.log(data);
-        },err => {
+        }, err => {
             console.log(err);
         })
 
 
-    
+
     </script>
 </body>
+
 </html>
