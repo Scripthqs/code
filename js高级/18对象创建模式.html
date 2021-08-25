@@ -52,29 +52,31 @@
 
 
         //4.自定义构造函数
-        function Person(name, age) {
-            this.name = name;
-            this.age = age;
-            this.say = function () {
-                console.log(this.age);
-            }
-        }
-        const p1 = new Person('hello', 20)
-        const p2 = new Person('world', 22)
-        console.log(p1, p2);//打印是个Person
-
-        //5.自定义构造函数+原型组合模式
-
         // function Person(name, age) {
         //     this.name = name;
         //     this.age = age;
-        // }
-        // Person.prototype.fun = function (name) {
-        //     this.name = name
+        //     this.say = function () {
+        //         console.log(this.age);
+        //     }
         // }
         // const p1 = new Person('hello', 20)
         // const p2 = new Person('world', 22)
         // console.log(p1, p2);//打印是个Person
+
+        //5.自定义构造函数+原型组合模式
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.fun = function (name) {
+            console.log(this);
+            this.name = name
+        }
+        const p1 = new Person('hello', 20)
+        const p2 = new Person('world', 22)
+        p1.fun()
+        console.log(p1, p2);//打印是个Person
 
 
 
