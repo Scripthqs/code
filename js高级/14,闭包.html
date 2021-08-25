@@ -14,37 +14,47 @@
     <button>按钮3</button>
     <script>
         var btns = document.getElementsByTagName("button")
-        /*         for(var i = 0; i < btns.length; i++){
-                    var btn = btns[i];
-                    btn.index = i 
-                    btn.onclick = function(){
-                        console.log(this.index);
-                    }
-                }
-                console.log(i); */
+        // for (var i = 0; i < btns.length; i++) {
+        //     btns[i].onclick = function () {
+        //         alert(`第${i}个按钮被点击`)
+        //     }
+        // }
 
-        for (var i = 0; i < btns.length; i++) {
-            (function(i) {
-                var btn = btns[i];
-                btn.onclick = function () {
-                    console.log(i);
-                }
-            })(i)
+        //1.解决方法1 
+        // for (var i = 0; i < btns.length; i++) {
+        //     btns[i].index = i
+        //     btns[i].onclick = function () {
+        //         console.log(this.index);
+        //     }
+        // }
 
-        }
+        //2.利用闭包
+        // for (var i = 0; i < btns.length; i++) {
+        //     (function (i) {
+        //         btns[i].onclick = function () {
+        //             console.log(i);
+        //         }
+        //     })(i)
+        // }
 
 
-        function fn1(){
-            var a = 1
-            var b = '1'
-            function fn2(){
-                console.log(a);
-            }
-            fn2()
-        }
-        fn1();
-      
+        // function fn1() {
+        //     var a = 1
+        //     var b = '1'
+        //     function fn2() {
+        //         console.log(a);
+        //     }
+        //     fn2()
+        // }
+        // fn1();
 
+        // var x = 3;
+        // for (var i = 0; i < 3; i++) {
+        //     console.log(i);
+        // }
+// 0
+// 1
+// 2
     </script>
 </body>
 
