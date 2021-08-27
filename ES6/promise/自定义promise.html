@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定义Promise</title>
+</head>
+
+<body>
+  <script src="./Promise.js"></script>
+  <!-- <script src="./Promise纯净版本.js"></script> -->
+  <script>
+    const p = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // resolve(1)
+        reject(2)
+        console.log('reject()改变状态之后');
+      }, 0);
+    })
+    p.then(
+      value => { console.log('onResolved1()', value); },
+      reason => {
+        console.log('onRejected1()', reason);
+        return 3
+      }
+    ).then(
+      value => {
+        console.log('onResolved(2)', value);
+        throw 4
+      },
+      reason => { console.log('onRejected2()', reason); }
+    ).catch(reason => {
+      console.log('onRejected3()', reason);
+      // return new Promise(() => { })
+    }).then(value => {
+      console.log('onResolved()', value);
+    })
+
+  </script>
+</body>
+
+</html>
