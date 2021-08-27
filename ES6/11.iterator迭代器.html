@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>迭代器Iterator</title>
 </head>
+
 <body>
     <script>
-/*         let arr = [7,2,3,4]
-        for(let v of arr){
+        let arr = [7, 2, 3]
+        for (let v of arr) {
             console.log(v);
         }
+        console.log(arr);
         let i = arr[Symbol.iterator]()
         console.log(i.next())
         console.log(i.next())
@@ -19,40 +22,39 @@
         console.log(i.next())
         console.log(i.next())
 
-        console.log(arr); */
+        // console.log(arr);
 
-
+        console.log('----------------------');
         let obj = {
-            name:'幼儿园',
-            s:[
-                'aaaa',
-                'bdfas',
-                'cdfsadd',
-                'dfads'
-            ],
-            [Symbol.iterator](){
-                let index = 0
-                // let _this = this;
+            name: '幼儿园',
+            students: ['小明', '小红', '小刚', '小李'],
+            [Symbol.iterator]() {
+                let i = 0
                 return {
-                    next: () =>{
-                        if(index < this.s.length){
-                            const result = { value: this.s[index],done: false}
-                            index++
-                            return result
-                        }else{
-                            return {value: undefined, done:true}
+                    next: () => {
+                        if (i < this.students.length) {
+                            const res = {
+                                value: this.students[i], done: false
+                            }
+                            //下标自增
+                            i++
+                            //返回结果
+                            return res
+                        } else {
+                            return {
+                                value: undefined, done: true
+                            }
                         }
                     }
                 }
             }
         }
+        console.log(obj);
 
-
-       for(let v of obj){
+        for (let v of obj) {
             console.log(v);
         }
-
-
     </script>
 </body>
+
 </html>

@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>生成器</title>
 </head>
+
 <body>
     <script>
-        function * gen(){
-            // console.log("1111");
-            yield 'ahah'
-            // console.log("22");
-            yield true
-            // console.log("33331");
-            yield 1
-            // console.log("4444");
-            yield {}
+        function* gen(args) {
+            console.log(args);
+            console.log('a');
+            yield 1;
+            console.log('b');
+            yield 'hello'
+            console.log('c');
+            yield 'world'
         }
-        let i = gen()
-        console.log(i);
-        console.log(i.next());
-        console.log(i.next());
-        console.log(i.next());
-        console.log(i.next());
-        console.log(i.next());
-        i.next();
-        i.next();
-        i.next();
-        i.next();
-        i.next();
+        let iterator = gen('AAA')
+        // console.log(iterator);
+        // gen()
+        // iterator.next()
+        // iterator.next()
+        console.log(iterator.next('BBB'))
+        // console.log(iterator.next())
+        // console.log(iterator.next())
+        // console.log(iterator.next())
+        // i.next();
+        // i.next();
+        // i.next();
+        // i.next();
+        // i.next();
 
         console.log("----------------");
-        for(let v of gen()){
-            console.log(v);
-        }
+        // for (let v of gen()) {
+        //     console.log(v);
+        // }
     </script>
 </body>
+
 </html>
