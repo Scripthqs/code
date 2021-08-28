@@ -44,45 +44,24 @@
   }
 
   Promise.prototype.then = function (onResolved, onRejected) {
-    onResolved = typeof onResolved === 'function' ? onResolved : value => value
-    onRejected = typeof onRejected === 'function' ? onRejected : reason => {
-      throw reason
-    }
     const _this = this
     return new Promise((resolve, reject) => {
-      function handle(callback) {
-        try {
-          const result = callback(_this.data)
-          if (result instanceof Promise) {
-            result.then(resolve, reject)
-          } else {
-            resolve(result)
-          }
-        } catch (error) {
-          reject(error)
-        }
-      }
       if (_this.status === RESOLVED) {
         setTimeout(() => {
-          handle(onResolved)
+          try {
+            onResolved(_this.data)
+          } catch (error) {
+            reject(error)
+          }
         }, 0);
       } else if (_this.status === REJECTED) {
-        setTimeout(() => {
-          handle(onRejected)
-        }, 0);
+
       } else {
-        _this.callbacks.push({
-          onResolved(value) {
-            handle(onResolved)
-          },
-          onRejected(reason) {
-            handle(onRejected)
-          }
-        })
+
       }
     })
   }
-  
+
   Promise.prototype.catch = function (onRejected) {
     return this.then(undefined, onRejected)
   }

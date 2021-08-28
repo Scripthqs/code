@@ -27,7 +27,7 @@
         //     console.log('箭头函数hello world');
         // }, 1000)
         // console.log('我在后面但是先执行');
-        // //参数 ->函数resolvev,reject,resolve和rejectye
+        // //参数 ->函数resolve,reject,resolve和reject
         // // new Promise((resolve,reject)=>{
 
         // // })
@@ -119,6 +119,9 @@
                 }
             }, 1000);
         })
+        console.log(Promise.prototype);
+        console.log(p);
+        console.log(p.then);
         //4.1接收成功的value数据,onResolved回调函数
         p.then(value => {
             console.log('成功的回调', value);
