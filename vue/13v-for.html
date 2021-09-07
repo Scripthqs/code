@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>v-for</title>
     <script src="vue.js"></script>
 </head>
+
 <body>
     <div id="app">
         <h1>{{ message }}</h1>
@@ -17,7 +19,7 @@
             <li v-for="(item,index) in names">{{index+1}}.{{item}}</li>
         </ul>
         <ul>
-            <li v-for="(item,key,index) in person" v-bind:key="item.id">{{index+1}}:{{key}}:{{item}}</li>
+            <li v-for="(item,index) in list" :key="item.id">{{index+1}}:{{item.name}}</li>
         </ul>
     </div>
     <script>
@@ -25,14 +27,20 @@
             el: "#app",
             data: {
                 message: "你好世界",
-                names:['a','b','c','d'],
+                names: ['a', 'b', 'c', 'd'],
                 person: {
-                    name:'xiaoming',
-                    age:18,
-                    height:1.88
-                }
+                    name: 'xiaoming',
+                    age: 18,
+                    height: 1.88
+                },
+                list: [
+                    { id: 1, name: 'zhangsan' },
+                    { id: 2, name: 'lisi' },
+                    { id: 3, name: 'xiaoming' }
+                ]
             }
         })
     </script>
 </body>
+
 </html>
