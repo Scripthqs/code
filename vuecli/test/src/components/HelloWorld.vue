@@ -1,7 +1,9 @@
 <template>
   <div class="hello">
-    <my-test :init='9' />
+    <!-- <my-test :init='9' /> -->
+    <my-test init='hahaha' @numChange='getNewNum' />
     <h1>{{ msg }}</h1>
+    <h1> numFormSon {{numFormSon}}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -36,6 +38,16 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data () {
+    return {
+      numFormSon: 0
+    }
+  },
+  methods: {
+    getNewNum (val) {
+      this.numFormSon = val
+    }
   }
 }
 </script>

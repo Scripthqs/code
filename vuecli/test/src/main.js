@@ -5,6 +5,11 @@ import Test from './Test.vue'
 
 Vue.component('myTest', Test)
 
+Vue.directive('aa', function (el, binding) {
+  el.style.color = binding.value
+}
+)
+
 Vue.config.productionTip = false
 
 new Vue({
