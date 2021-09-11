@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import axios from 'axios'
+// import axios from 'axios'
 
 Vue.config.productionTip = false
 
@@ -28,9 +28,9 @@ new Vue({
 // })
 //写法2：http://localhost:5000/students
 
-axios.get('https://httpbin.org/').then(res=>{
-  console.log('请求成功',res.data);
-})
+// axios.get('https://httpbin.org/').then(res=>{
+//   console.log('请求成功',res.data);
+// })
 
 // axios.get('http://localhost:8081/test/cars').then(
 //   res => {

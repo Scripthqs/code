@@ -76,36 +76,36 @@ import axios from 'axios'
 
 //五、拦截器的使用
 
-export  function request(config){
+export function request (config) {
     //1创建axios实例
     const instance1 = axios.create({
-        // baseURL: "http://localhost:8081/abc",
-        baseURL: "/abc",
+        baseURL: "https://autumnfish.cn",
+        // baseURL: "/abc",
         timeout: 5000
     })
     //2axios拦截器
 
     //请求拦截
     instance1.interceptors.request.use(config => {
-        console.log(config);
+        console.log(config)
 
         //1比如config中的一些信息不符合服务器的要求
         //1比如希望每次发送请求时，在界面中显示一个请求的图标
         //1某些网络请求，比如登录token，必须携带一些特殊的信息，跳转到某个地方登录
         //2拦截后必须返回
         return config
-    },err => {
-        console.log(err);
+    }, err => {
+        console.log(err)
     })
 
     //响应拦截
     instance1.interceptors.response.use(res => {
-        console.log(res);
+        console.log(res)
         return res.data
     }, err => {
-        console.log(err);
+        console.log(err)
     })
 
     //3.发送真正的网络请求
     return instance1(config)
- }
+}

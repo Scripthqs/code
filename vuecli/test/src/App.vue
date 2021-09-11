@@ -1,5 +1,10 @@
 <template>
   <div id="app">
+    
+
+    <a href="#/Left">Left</a>
+    <a href="#/Right">Right</a>
+    <component :is='comName'></component>
     <img alt="Vue logo" src="./assets/logo.png">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <left ref="comLeft"></left>
@@ -56,7 +61,20 @@ export default {
     return {
       aa: 0,
       inputVisible: false,
-      componentId: 'Left'
+      componentId: 'Left',
+      comName: 'Left'
+    }
+  },
+  created () {
+    window.onhashchange = () => {
+      switch (location.hash) {
+        case '#/Left':
+          this.comName = 'Left'
+          break
+        case '#/Right':
+          this.comName = 'Right'
+          break
+      }
     }
   },
   methods: {
