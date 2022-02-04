@@ -5,13 +5,13 @@
   const REJECTED = 'rejected'
 
   class Promise {
-    constructor(executor) {
+    constructor (executor) {
       const _this = this //将当前promise对象保存起来
       _this.status = PENDING //给Promise指定status属性,初始值为pending
       _this.data = undefined //给Promise指定一个用于存储结果数据的属性
       _this.callbacks = [] //给Promise指定回调函数，存的是对象 每个元素的结构：{onResolved() {}, onRejected() {}}
 
-      function resolve(value) {
+      function resolve (value) {
         //如果当前状态不是pending,直接结束
         if (_this.status !== PENDING) return
         //1.将状态改为resolved
@@ -23,12 +23,12 @@
           setTimeout(() => { //放入队列中执行所有的回调
             _this.callbacks.forEach(callbacksObj => {
               callbacksObj.onResolved(value)
-            });
-          }, 0);
+            })
+          }, 0)
         }
       }
 
-      function reject(reason) {
+      function reject (reason) {
         //如果当前状态不是pending,直接结束
         if (_this.status !== PENDING) return
         //将状态改为rejected
@@ -40,8 +40,8 @@
           setTimeout(() => { //放入队列中执行所有的回调
             _this.callbacks.forEach(callbacksObj => {
               callbacksObj.onRejected(reason)
-            });
-          }, 0);
+            })
+          }, 0)
         }
       }
       //立即同步执行executor
@@ -53,7 +53,7 @@
     }
 
     //Promise原型上的then方法,指定成功和失败的回调函数,返回一个新的Promise
-    then(onResolved, onRejected) {
+    then (onResolved, onRejected) {
       // 指定默认的成功的回调onResolved （向后传递成功的value）
       if (typeof onResolved !== 'function') {
         onResolved = value => value
@@ -70,7 +70,7 @@
       //返回新的Promise对象
       return new Promise((resolve, reject) => {
         //调用指定回调函数封装处理,根据执行结果,改变return的promise状态
-        function handle(callback) {
+        function handle (callback) {
           //1.如果抛出异常,return的Promise失败,reason就是error
           //2.如果回调函数执行返回非Promise,return的Promise成功,value就是返回的值
           //3.如果回调函数返回的是Promise,return的Promise结果就是本身Promise的结果
@@ -98,19 +98,19 @@
         if (_this.status === RESOLVED) { //'resolved'，调用onResolved回调函数
           setTimeout(() => {
             handle(onResolved)
-          }, 0);
+          }, 0)
         } else if (_this.status === REJECTED) { //'rejected'，调用onRejected回调函数
           setTimeout(() => {
             handle(onRejected)
-          }, 0);
+          }, 0)
         } else {
 
           //假设当前状态还是pending状态,将回调函数保存起来
           _this.callbacks.push({
-            onResolved() {
+            onResolved () {
               handle(onResolved)
             },
-            onRejected() {
+            onRejected () {
               handle(onRejected)
             }
           })
@@ -183,7 +183,7 @@
             resolve(value)
           }
         })
-      }, time);
+      }, time)
     }
     //返回一个Promise对象，它在指定的时间后才失败
     static rejectDelay = function (reason, time) {
@@ -191,7 +191,7 @@
         return new Promise((resolve, reject) => {
           reject(reason)
         })
-      }, time);
+      }, time)
     }
   }
 

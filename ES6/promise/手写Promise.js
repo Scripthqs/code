@@ -3,13 +3,13 @@
   const RESOLVED = 'resolved'
   const REJECTED = 'rejected'
 
-  function Promise(executor) {
+  function Promise (executor) {
     const _this = this
     _this.status = PENDING
     _this.data = undefined
     _this.callbacks = []
 
-    function resolve(value) {
+    function resolve (value) {
       if (_this.status !== PENDING) return
       _this.status = RESOLVED
       _this.data = value
@@ -18,11 +18,11 @@
           _this.callbacks.forEach(item => {
             item.onResolved(value)
           })
-        }, 0);
+        }, 0)
       }
     }
 
-    function reject(reason) {
+    function reject (reason) {
       if (_this.status !== PENDING) return
       _this.status = REJECTED
       _this.data = reason
@@ -31,7 +31,7 @@
           _this.callbacks.forEach(item => {
             item.onRejected(reason)
           })
-        }, 0);
+        }, 0)
       }
     }
 
@@ -54,7 +54,7 @@
     }
     _this = this
     return new Promise((resolve, reject) => {
-      function handle(callback) {
+      function handle (callback) {
         try {
           let result = callback(_this.data)
           if (result instanceof Promise) {
@@ -69,17 +69,17 @@
       if (_this.status === RESOLVED) {
         setTimeout(() => {
           handle(onResolved)
-        }, 0);
+        }, 0)
       } else if (_this.status === REJECTED) {
         setTimeout(() => {
           handle(onRejected)
-        }, 0);
+        }, 0)
       } else {
         _this.callbacks.push({
-          onResolved() {
+          onResolved () {
             handle(onResolved)
           },
-          onRejected() {
+          onRejected () {
             handle(onRejected)
           }
         })

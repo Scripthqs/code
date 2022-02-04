@@ -20,7 +20,7 @@
         //     // fn2()
         // }
         // fn1()
-        // 1.将一个函数作为另一个函数的返回值
+        // // 1.将一个函数作为另一个函数的返回值
         // function fn1() {
         //     var a = 2
         //     function fn2() {
@@ -39,10 +39,26 @@
         // }
         // showDelay('hello world', 1000)
         // var hqs = hqs()
-        hqs.fn1()
-        hqs.fn2()
+        // hqs.fn1()
+        // hqs.fn2()
+        function fn1() {
+            var a = 2
+            function fn2() {
+                a++
+                console.log(a);
+            }
+            return fn2
+        }
+        var f = fn1()
+        f()
 
 
+        function showDelay(msg, time) {
+            setTimeout(() => {
+                alert(msg)
+            }, time);
+        }
+        showDelay('hello world', 1000)
     </script>
 </body>
 

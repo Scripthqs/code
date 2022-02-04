@@ -3,13 +3,13 @@
   const RESOLVED = 'resolved'
   const REJECTED = 'rejected'
 
-  function Promise(executor) {
+  function Promise (executor) {
     const _this = this
     _this.status = PENDING
     _this.data = undefined
     _this.callbacks = []
 
-    function resolve(value) {
+    function resolve (value) {
       if (_this.status !== PENDING) return
       _this.status = RESOLVED
       _this.data = value
@@ -17,12 +17,12 @@
         setTimeout(() => {
           _this.callbacks.forEach(callbacksObj => {
             callbacksObj.onResolved(value)
-          });
-        }, 0);
+          })
+        }, 0)
       }
     }
 
-    function reject(reason) {
+    function reject (reason) {
       if (_this.status !== PENDING) {
         return
       }
@@ -32,8 +32,8 @@
         setTimeout(() => {
           _this.callbacks.forEach(callbacksObj => {
             callbacksObj.onRejected(reason)
-          });
-        }, 0);
+          })
+        }, 0)
       }
     }
     try {
@@ -53,7 +53,7 @@
           } catch (error) {
             reject(error)
           }
-        }, 0);
+        }, 0)
       } else if (_this.status === REJECTED) {
 
       } else {
