@@ -1,8 +1,0 @@
-
-.box1{
-	width: 375rpx;
-	height: 375rpx;
-	background-color: red;
-	font-size: 50rpx;
-}
-

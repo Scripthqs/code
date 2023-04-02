@@ -1,1 +1,0 @@
-<view id="test">{{'我是测试组件'+num+''}}</view>
