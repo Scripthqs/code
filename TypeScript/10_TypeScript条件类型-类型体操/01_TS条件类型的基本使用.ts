@@ -3,6 +3,8 @@ type IDType = number | string
 // 判断number是否是extendsIDType
 // const res = 2 > 3? true: false
 type ResType = boolean extends IDType? true: false
+type ResType = number extends IDType? true: false
+
 
 // 举个栗子: 函数的重载
 // function sum(num1: number, num2: number): number

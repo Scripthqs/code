@@ -22,29 +22,39 @@
 //   return abc
 // }
 
-
 // const info = getInfo()
 // const name = info["name"]
 // console.log(name, info.age, info.address)
 
-
 // 2.索引签名的案例
-interface ICollection {
-  [index: number]: string
-  length: number
+// interface ICollection {
+//   [index: number]: string
+//   length: number
+// }
+
+// function printCollection(collection: ICollection) {
+//   for (let i = 0; i < collection.length; i++) {
+//     const item = collection[i]
+//     console.log(item.length)
+//   }
+// }
+
+// const array = ["abc", "cba", "nba"]
+// const tuple: [string, string] = ["why", "广州"]
+// printCollection(array)
+// printCollection(tuple)
+
+interface ApiResponse {
+  [key: string]: string | number;
 }
 
-function printCollection(collection: ICollection) {
-  for (let i = 0; i < collection.length; i++) {
-    const item = collection[i]
-    console.log(item.length)
-  }
-}
+fetch("https://api.example.com/users")
+  .then((response) => response.json())
+  .then((data) => {
+    const users: ApiResponse[] = data.users;
+    users.forEach((user) => {
+      console.log(user.name, user.email);
+    });
+  });
 
-const array = ["abc", "cba", "nba"]
-const tuple: [string, string] = ["why", "广州"]
-printCollection(array)
-printCollection(tuple)
-
-export {}
-
+export {};

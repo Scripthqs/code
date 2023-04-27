@@ -8,5 +8,6 @@ function foo(x: number, y = 100) {
 foo(10);
 foo(10, undefined);
 foo(10, 55);
+foo(1, "2");
 
 export {};

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <span class="item item1">1</span>
+      <span class="item item2">2</span>
+    </div>
+    <style>
+      /* 写法1 */
+      .container {
+        display: flex;
+        align-items: center;
+        /* justify-content: space-between; */
+        height: 40px;
+        padding: 0 20px;
+        background-color: orange;
+      }
+      .item {
+        width: 20px;
+        height: 40px;
+        line-height: 40px;
+        background-color: #fff;
+      }
+      /* 写法2 */
+      .item1 {
+        flex: 1;
+      }
+    </style>
+  </body>
+</html>

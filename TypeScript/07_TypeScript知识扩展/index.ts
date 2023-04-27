@@ -16,7 +16,7 @@ const p: IPerson = { name: "why", age: 18 }
 price.format("1111")
 date.format("22222")
 
-// let doc: Document;
+let doc: Document;
 // let promise = new Promise()
 
 // document.querySelector()

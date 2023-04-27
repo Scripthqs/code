@@ -1,5 +1,6 @@
 declare module "lodash" {
   export function join(...args: any[]): any
+  // export function add(...args: any[]): any
 }
 
 // 为自己的 变量/函数/类 定义类型声明
