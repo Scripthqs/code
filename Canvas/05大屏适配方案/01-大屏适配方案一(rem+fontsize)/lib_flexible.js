@@ -16,7 +16,7 @@
   // 这里默认平均分成 10 等分(适用移动端)
   // set 1rem = viewWidth / 24 ；（使用pc端）
   function setRemUnit() {
-    var rem = docEl.clientWidth / 24;  // 1920 / 24 = 80 
+    var rem = docEl.clientWidth / 24; // 1920 / 24 = 80
     docEl.style.fontSize = rem + "px"; // 设置 html字体的大小 80px
   }
 
