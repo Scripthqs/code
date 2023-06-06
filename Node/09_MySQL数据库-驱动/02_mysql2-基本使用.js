@@ -20,5 +20,5 @@ connection.query(statement, (err, values, fields) => {
 
   // 查看结果
   console.log(values);
-  // console.log(fields)
+  console.log(fields)
 });
